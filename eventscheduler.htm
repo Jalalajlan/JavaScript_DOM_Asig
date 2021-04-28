@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Event Scheduler & notification</title>
+
+    <!-- Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <div class="row titleOfEvents">Events for today!</div>
+          <div class="eventCard">
+            <p>python workshop! live on facebook</p>
+            <p class="timeOfEvent">
+              <img
+                src="deadline.svg"
+                width="22"
+                height="22"
+                alt=""
+                srcset=""
+              />11:00AM
+            </p>
+          </div>
+          <div class="eventCard">
+            <p>c++ workshop! live on facebook</p>
+            <p class="timeOfEvent">
+              <img
+                src="deadline.svg"
+                width="22"
+                height="22"
+                alt=""
+                srcset=""
+              />11:00AM
+            </p>
+          </div>
+          <div class="eventCard">
+            <p>Matlab workshop! live on facebook</p>
+            <p class="timeOfEvent">
+              <img
+                src="deadline.svg"
+                width="22"
+                height="22"
+                alt=""
+                srcset=""
+              />11:00AM
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            <p class="dashboard">Schedule an Event:</p>
+          </div>
+          <!-- forms -->
+          <form id="eventform">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter title"
+                autocomplete="off"
+              />
+            </div>
+            <div class="row">
+              <p class="dashboard">Time:</p>
+            </div>
+            <select id="time" class="form-control">
+              <option value="9">9:00 AM</option>
+              <option value="10">10:00 AM</option>
+              <option value="10">11:00 AM</option>
+              <option value="11">11:00 AM</option>
+              <option value="12">12:00 AM</option>
+              <option value="13">1:00 PM</option>
+            </select>
+            <br />
+            <button
+              class="btn btn-primary"
+              id="btnSelectedStudent"
+              type="button"
+            >
+              Add event
+            </button>
+            <br />
+            <div class="row">
+              <p class="dashboard">Update an event:</p>
+            </div>
+            <select id="time" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <br />
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter new title here"
+                autocomplete="off"
+              />
+            </div>
+            <button
+              class="btn btn-primary"
+              id="btnSelectedStudent"
+              type="button"
+            >
+              update event
+            </button>
+            <div class="row">
+              <p class="dashboard">Delete an event:</p>
+            </div>
+            <select id="time" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <button
+              class="btn btn-primary"
+              id="btnSelectedStudent"
+              type="button"
+            >
+              delete event
+            </button>
+            <button
+              class="btn btn-primary"
+              id="showNotificationBtn"
+              type="button"
+            >
+              show notification
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

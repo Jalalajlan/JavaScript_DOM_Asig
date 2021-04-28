@@ -2,3 +2,62 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background-color: #fcfcfc;
+  color: white;
+  font-family: sans-serif;
+}
+
+.col-md-5 {
+  width: 600px;
+  height: 100%;
+  background-color: #50696b;
+  padding: 20px;
+  margin: 24px 10px 10px 10px;
+  border-radius: 4px;
+  font-size: 22px;
+}
+
+.col-md-2 {
+  width: 350px;
+  height: 100%;
+  background-color: #50696b;
+  padding: 20px;
+  margin: 24px 10px 10px 10px;
+}
+
+button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+#showNotificationBtn {
+  margin-top: 8px;
+}
+
+.dashboard {
+  margin: 0 2px 5px 5px;
+  padding: 5px;
+  font-size: large;
+  font-weight: 700;
+}
+
+.eventCard {
+  width: 100%;
+  border: 1px solid #dedede;
+  padding: 10px;
+  margin: 5px;
+  display: inline-flex;
+}
+
+.titleOfEvents {
+  font-size: large;
+  margin: 5px;
+}
+
+.timeOfEvent {
+  font-size: 18px;
+  margin-left: 101px;
+  margin-top: 2px;
+}
