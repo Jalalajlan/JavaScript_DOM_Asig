@@ -43,21 +43,21 @@ button {
   font-weight: 700;
 }
 
-.eventCard {
-  width: 100%;
-  border: 1px solid #dedede;
-  padding: 10px;
-  margin: 5px;
-  display: inline-flex;
-}
-
 .titleOfEvents {
   font-size: large;
-  margin: 5px;
+  margin-left: 18px;
 }
 
-.timeOfEvent {
+.grid {
+  display: grid;
+  grid-template-columns: 420px 120px;
+  width: 100%;
+  border: 1px solid #dedede;
+  margin: 5px;
+  padding: 10px;
   font-size: 18px;
-  margin-left: 101px;
-  margin-top: 2px;
+}
+
+.timeofEvent {
+  text-align: center;
 }
