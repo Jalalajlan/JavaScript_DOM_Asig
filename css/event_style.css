@@ -50,14 +50,18 @@ button {
 
 .grid {
   display: grid;
-  grid-template-columns: 420px 120px;
+  grid-template-columns: 350px 100px 100px;
   width: 100%;
   border: 1px solid #dedede;
   margin: 5px;
   padding: 10px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .timeofEvent {
+  text-align: center;
+}
+
+.dateofEvent {
   text-align: center;
 }

@@ -28,7 +28,12 @@
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/event_style.css" />
   </head>
   <body>
     <div class="container">
@@ -39,110 +44,73 @@
             <p class="titleOfEvents">Events for today!</p>
           </div>
           <div class="evetnCard grid">
-            <div class="titleofEvent">pythong workshop, live in facebook!</div>
-            <div class="timeofEvent">
-              <img src="deadline.svg" width="22" height="22" /> 11:00 AM
-            </div>
+            <p class="titleofEvent">Python workshop</p>
+            <p class="timeofEvent">11:00 AM</p>
+            <p class="dateofEvent">2021-05-10</p>
           </div>
           <div class="evetnCard grid">
-            <div class="titleofEvent">c++ workshop, live in facebook!</div>
-            <div class="timeofEvent">
-              <img src="deadline.svg" width="22" height="22" /> 11:00 AM
-            </div>
+            <p class="titleofEvent">Angular Event 3.0</p>
+            <p class="timeofEvent">10:00 AM</p>
+            <p class="dateofEvent">2021-05-5</p>
           </div>
           <div class="evetnCard grid">
-            <div class="titleofEvent">Matlab workshop, live in facebook!</div>
-            <div class="timeofEvent">
-              <img src="deadline.svg" width="22" height="22" /> 11:00 AM
-            </div>
+            <p class="titleofEvent">World Book Day 2021</p>
+            <p class="timeofEvent">09:00 AM</p>
+            <p class="dateofEvent">2021-05-7</p>
           </div>
         </div>
         <div class="col-md-2">
-          <div class="row">
-            <p class="dashboard">Schedule an Event:</p>
-          </div>
-          <!-- forms -->
-          <form id="eventform">
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="title"
-                placeholder="Enter title"
-                autocomplete="off"
-              />
-            </div>
+          <form>
             <div class="row">
-              <p class="dashboard">Time:</p>
+              <p class="dashboard">Arrange Events by:</p>
             </div>
-            <select id="time" class="form-control">
-              <option value="9">9:00 AM</option>
-              <option value="10">10:00 AM</option>
-              <option value="10">11:00 AM</option>
-              <option value="11">11:00 AM</option>
-              <option value="12">12:00 AM</option>
-              <option value="13">1:00 PM</option>
+            <select id="selectedScheduler" class="form-control">
+              <option value="">sort with</option>
+              <option value="topic">Topic</option>
+              <option value="time">Time</option>
+              <option value="date">Date</option>
             </select>
             <br />
             <button
               class="btn btn-primary"
-              id="btnSelectedStudent"
+              id="btnSelectedScheduler"
               type="button"
             >
-              Add event
+              Arrange now
             </button>
             <br />
+            <button
+              class="btn btn-primary"
+              id="btnShowNotification"
+              type="button"
+            >
+              <a href="#myModal" class="trigger-btn" data-toggle="modal"></a>
+              Show notifications
+            </button>
+            <br />
+          </form>
+
+          <!-- Jquery html -->
+          <br />
+          <br />
+          <form>
             <div class="row">
-              <p class="dashboard">Update an event:</p>
+              <p class="dashboard">Arrange Events by Jquery:</p>
             </div>
-            <select id="time" class="form-control">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+            <select id="myselect" class="form-control">
+              <option value="" selected disabled>sort with</option>
+              <option value="topic">Topic</option>
+              <option value="time">Time</option>
             </select>
             <br />
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="title"
-                placeholder="Enter new title here"
-                autocomplete="off"
-              />
-            </div>
             <button
               class="btn btn-primary"
-              id="btnSelectedStudent"
+              id="btnShowNotification"
               type="button"
             >
-              update event
+              Show notifications
             </button>
-            <div class="row">
-              <p class="dashboard">Delete an event:</p>
-            </div>
-            <select id="time" class="form-control">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <button
-              class="btn btn-primary"
-              id="btnSelectedStudent"
-              type="button"
-            >
-              delete event
-            </button>
-            <button
-              class="btn btn-primary"
-              id="showNotificationBtn"
-              type="button"
-            >
-              show notification
-            </button>
+            <br />
           </form>
         </div>
       </div>
