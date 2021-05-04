@@ -43,20 +43,22 @@
           <div class="row">
             <p class="titleOfEvents">Events for today!</p>
           </div>
-          <div class="evetnCard grid">
-            <p class="titleofEvent">Python workshop</p>
-            <p class="timeofEvent">11:00 AM</p>
-            <p class="dateofEvent">2021-05-10</p>
-          </div>
-          <div class="evetnCard grid">
-            <p class="titleofEvent">Angular Event 3.0</p>
-            <p class="timeofEvent">10:00 AM</p>
-            <p class="dateofEvent">2021-05-5</p>
-          </div>
-          <div class="evetnCard grid">
-            <p class="titleofEvent">World Book Day 2021</p>
-            <p class="timeofEvent">09:00 AM</p>
-            <p class="dateofEvent">2021-05-7</p>
+          <div id="content">
+            <div class="evetnCard grid">
+              <p class="titleofEvent">Python workshop</p>
+              <p class="timeofEvent">11:00 AM</p>
+              <p class="dateofEvent">2021-05-4</p>
+            </div>
+            <div class="evetnCard grid">
+              <p class="titleofEvent">Angular Event 3.0</p>
+              <p class="timeofEvent">10:00 AM</p>
+              <p class="dateofEvent">2021-05-4</p>
+            </div>
+            <div class="evetnCard grid">
+              <p class="titleofEvent">World Book Day 2021</p>
+              <p class="timeofEvent">09:00 AM</p>
+              <p class="dateofEvent">2021-05-4</p>
+            </div>
           </div>
         </div>
         <div class="col-md-2">
@@ -68,7 +70,6 @@
               <option value="">sort with</option>
               <option value="topic">Topic</option>
               <option value="time">Time</option>
-              <option value="date">Date</option>
             </select>
             <br />
             <button
@@ -84,7 +85,6 @@
               id="btnShowNotification"
               type="button"
             >
-              <a href="#myModal" class="trigger-btn" data-toggle="modal"></a>
               Show notifications
             </button>
             <br />
@@ -95,22 +95,44 @@
           <br />
           <form>
             <div class="row">
-              <p class="dashboard">Arrange Events by Jquery:</p>
+              <p class="dashboard">Add Event:</p>
             </div>
-            <select id="myselect" class="form-control">
-              <option value="" selected disabled>sort with</option>
-              <option value="topic">Topic</option>
-              <option value="time">Time</option>
+            <input
+              type="text"
+              id="titleofEvent"
+              class="form-control"
+              placeholder="Enter title of event"
+              style="margin-bottom: 5px"
+            />
+            <select class="form-control" id="time" style="margin-bottom: 5px">
+              <option value="" selected disabled>select event time</option>
+              <option value="08:00 AM">08:00 AM</option>
+              <option value="09:00 AM">09:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 AM">12:00 AM</option>
+              <option value="01:00 PM">01:00 PM</option>
             </select>
-            <br />
-            <button
-              class="btn btn-primary"
-              id="btnShowNotification"
-              type="button"
-            >
-              Show notifications
+            <input
+              placeholder="Date yyyy/mm/dd"
+              type="text"
+              id="dateofEvent"
+              class="form-control"
+            />
+
+            <!-- two Buttons  -->
+
+            <button class="btn btn-primary" id="btnApplyJquery" type="button">
+              Apply with Jquery
             </button>
-            <br />
+
+            <!-- Javascript Button -->
+            <input
+              class="btn btn-primary"
+              id="btnApplyjs"
+              type="button"
+              value="Apply with JS"
+            />
           </form>
         </div>
       </div>

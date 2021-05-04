@@ -1,8 +1,20 @@
+let currentDate = "";
+let newDate = new Date();
+
+currentDate = newDate.getFullYear() + "-";
+currentDate += newDate.getMonth() + 1 + "-";
+currentDate += newDate.getDate();
+
+$("#dateofEvent").val(currentDate);
+
 const btnoptionSelected = document.querySelector("#btnSelectedScheduler");
 btnoptionSelected.addEventListener("click", arrangeEvents);
 
 const btnShowNotification = document.querySelector("#btnShowNotification");
 btnShowNotification.addEventListener("click", showNotification);
+
+const btnApplyJs = document.querySelector("#btnApplyjs");
+btnApplyJs.addEventListener("click", AddEventJavscript);
 
 function arrangeEvents() {
   const optionSelected = document.querySelector("#selectedScheduler");
@@ -18,9 +30,7 @@ function arrangeEvents() {
   if (optionSelected.value === "topic") {
     arrangeEventsbyTopic(titles, times, dates);
   }
-  if (optionSelected.value === "date") {
-    arrangeEventsbyDate(titles, times, dates);
-  }
+
   if (optionSelected.value === "time") {
     arrangeEventsbyTime(titles, times, dates);
   }
@@ -58,56 +68,6 @@ function arrangeEventsbyTopic(titles, times, dates) {
 
     times[index].textContent = txt.time;
     dates[index].textContent = txt.date;
-  }
-}
-
-function arrangeEventsbyDate(titles, times, dates) {
-  // to hold node values
-  let arrangedDates = [];
-
-  var event = {};
-
-  // loop through the Events
-  for (let index = 0; index < times.length; index++) {
-    event["title"] = titles[index].textContent;
-    event["time"] = times[index].textContent.trim();
-    event["date"] = new Date(dates[index].textContent.trim());
-
-    arrangedDates.push(event);
-    event = {};
-  }
-
-  const datesElements = arrangedDates.map((element) => element.date);
-
-  // sort topics by numeric order
-  datesElements.sort((a, b) => a - b);
-
-  let current = "";
-  for (let index = 0; index < datesElements.length; index++) {
-    current = datesElements[index];
-    console.log(current);
-  }
-
-  let element = "";
-  for (let index = 0; index < datesElements.length; index++) {
-    // array the topic in order
-    element += datesElements[index].getFullYear();
-    element += "-0";
-    element += datesElements[index].getMonth() + 1;
-    element += "-";
-    element += datesElements[index].getDate();
-
-    dates[index].textContent = element;
-
-    element = "";
-
-    //   get the time and date of the topic
-    const txt = arrangedDates.find(
-      (element) => element.date === datesElements[index]
-    );
-
-    titles[index].textContent = txt.title;
-    times[index].textContent = txt.time;
   }
 }
 
@@ -159,63 +119,75 @@ function showNotification() {
   alert("You have the nearst meeting in " + arrnageTimes[0]);
 }
 
-// functionality with Jquery
+function AddEventJavscript() {
+  // Grab all the values from input from forms
+  let eventTitle = document.querySelector("#titleofEvent").value;
 
-let applyArrnagementSelection = $("#myselect");
+  // Grab the time of the Event
+  let timeSelected = document.querySelector("#time");
 
-applyArrnagementSelection.change(function () {
-  // aquire option selected from the dropdown menu
-  var selectedOption = $("#myselect option:selected");
+  // Grab the date entered
+  let eventDate = document.querySelector("#dateofEvent").value;
 
-  if (selectedOption.val() === "topic") {
-    topicArrangement();
+  if (eventTitle === "" || timeSelected.value === "" || eventDate === "") {
+    alert("please enter all required fields");
+  } else {
+    // Grab the div element that contains all the events
+    let eventList = document.querySelector("#content");
+
+    // Create an Element div with each class for styling
+    let newEvent = document.createElement("div");
+
+    // set attribute class for the div Element
+    newEvent.setAttribute("class", "eventCard grid");
+
+    // Create an Element p with each class for styling
+    let titleElement = document.createElement("p");
+    titleElement.setAttribute("class", "titleofEvent");
+
+    titleElement.innerHTML = eventTitle;
+
+    let timeElement = document.createElement("p");
+    timeElement.setAttribute("class", "timeofEvent");
+
+    timeElement.innerHTML = timeSelected.value;
+
+    let dateElement = document.createElement("p");
+    dateElement.setAttribute("class", "dateofEvent");
+
+    dateElement.innerHTML = eventDate;
+
+    // Append the Div Element into eventList
+    eventList.appendChild(newEvent);
+    newEvent.appendChild(titleElement);
+    newEvent.appendChild(timeElement);
+    newEvent.appendChild(dateElement);
   }
-
-  if (selectedOption.val() === "time") {
-    timeArrangement();
-  }
-});
-
-function topicArrangement() {
-  // to hold the values from Event Card
-
-  let arragedEvents = [];
-
-  var event = {};
-
-  $(".titleofEvent").each(function () {
-    event["title"] = this.textContent;
-
-    event["time"] = "";
-
-    event["date"] = "";
-
-    arragedEvents.push(event);
-
-    event = {};
-  });
-
-  $(".timeofEvent").each(function (index) {
-    arragedEvents[index]["time"] = this.textContent;
-  });
-
-  $(".dateofEvent").each(function (index) {
-    arragedEvents[index]["date"] = this.textContent;
-  });
-
-  const topics = arragedEvents.map((element) => element.title);
-
-  topics.sort();
-
-  $(".titleofEvent").each(function (index) {
-    this.textContent = topics[index];
-  });
 }
 
-function timeArrangement() {
-  alert("I am here from topic");
+// adding by using Jquery
+
+let btnApplyJquery = $("#btnApplyJquery");
+btnApplyJquery.click(addEventJquery);
+
+function addEventJquery() {
+  // Grab all Element within
+
+  let titleofEvent = $("#titleofEvent").val();
+  let timeofEvent = $("#time").val();
+
+  let dateofEvent = $("#dateofEvent").val();
+
+  if (titleofEvent === "" || timeofEvent === null || dateofEvent === "") {
+    alert("please enter all required fields");
+  } else {
+    // Capture div content wrapper of events
+    let eventList = $("#content");
+    let event = "<div class='eventCard grid'>";
+    event += "<p class='titleofEvent'>" + titleofEvent + "</p>";
+    event += "<p class='timeofEvent'> " + timeofEvent + " </p>";
+    event += "<p class='dateofEvent'> " + dateofEvent + "</p>";
+    event += "</div>";
+    eventList.append(event);
+  }
 }
-
-function setEventTime() {}
-
-function setEventDate() {}
