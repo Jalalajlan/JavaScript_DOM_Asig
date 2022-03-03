@@ -1,5 +1,6 @@
-# dom_assignment1
+# Javascript Dom Assignment
 
-<h1>Document Object Model & Jquery</h1>
+## Event Scheduler With Only JavaScript and Jquery
 
-<p>create your branch before you start working in your part</p>
+This Assignment is for event scheduler single-page app that has functionality
+with Javascript and Jquery only.
